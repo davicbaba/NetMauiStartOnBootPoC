@@ -9,5 +9,7 @@ namespace NetMauiStartOnBootPoC.Services
     internal interface IAppLauncherService
     {
         void RestartApplication();
+
+        void AskManageOverlayPermission();
     }
 }

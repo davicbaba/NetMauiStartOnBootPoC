@@ -9,8 +9,15 @@
     private void Restart()
     {
         _appLauncherService.RestartApplication();
+
     }
 
-    
+
+    protected override void OnInitialized()
+    {
+        _appLauncherService.AskManageOverlayPermission();
+
+        base.OnInitialized();
+    }
 
 }
