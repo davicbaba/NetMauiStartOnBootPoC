@@ -1,5 +1,16 @@
-﻿@page "/"
+﻿@using NetMauiStartOnBootPoC.Services;
+@inject IAppLauncherService _appLauncherService;
+@page "/"
 
-<h1>Hello, world!</h1>
+<button @onclick="Restart">Restart Application</button>
 
-Welcome to your new app.
+@code {
+
+    private void Restart()
+    {
+        _appLauncherService.RestartApplication();
+    }
+
+    
+
+}

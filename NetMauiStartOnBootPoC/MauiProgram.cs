@@ -1,4 +1,6 @@
 ﻿using Microsoft.Extensions.Logging;
+using NetMauiStartOnBootPoC.Platforms.Android;
+using NetMauiStartOnBootPoC.Services;
 
 namespace NetMauiStartOnBootPoC
 {
@@ -16,8 +18,13 @@ namespace NetMauiStartOnBootPoC
 
             builder.Services.AddMauiBlazorWebView();
 
+
+#if ANDROID
+            builder.Services.AddSingleton<IAppLauncherService, AppLauncherService>();
+#endif
+
 #if DEBUG
-    		builder.Services.AddBlazorWebViewDeveloperTools();
+            builder.Services.AddBlazorWebViewDeveloperTools();
     		builder.Logging.AddDebug();
 #endif
 
